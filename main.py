@@ -3,8 +3,6 @@ def book_contents():
         file_contents = f.read()
 
         print(file_contents)
-        
-
 
 def word_count():
     number_of_words = 0
@@ -33,13 +31,16 @@ def count_char():
 
             for char in line:
                 char = char.lower()
-                if char in char_count:
-                    char_count[char] += 1
-                else:
-                    char_count[char] = 1
+                if char.isalpha():  # Check if the character is alphabetic
+                    if char in char_count:
+                        char_count[char] += 1
+                    else:
+                        char_count[char] = 1
             
-        #print(number_of_chars)
-        print(char_count)
+        print(f"{number_of_chars} characters found in the document")
+        
+        for char, count in char_count.items():
+            print(f"The '{char}' character was found {count} times")
 
 #book_contents()
 #word_count()
